@@ -1,11 +1,17 @@
+import {useState} from 'react';
+
 const Home = () => {
-  function handleClick(e,b) {
-    console.log(e,b.target);
+
+    const [name,setName]=useState("Mario");
+  function handleClick(e) {
+   setName(e);
   }
+ 
   return (
     <div className="home">
       <h2>Homepage</h2>
-      <button onClick={(e)=>handleClick("dozie",e)}>Yes</button>
+      <p>{name}</p>
+      <button onClick={()=>handleClick("Dozie")}>Yes</button>
     </div>
   );
 };
