@@ -13,10 +13,14 @@ const Home = () => {
     },
   ]);
 
+  function deleteBlog(e){
+    setBlogs(blogs.filter(blog=>blog.id!==e));
+}
+
   return (
     <div className="home">
-      <BlogList blogs={blogs} title="All Blogs!"/>
-      <BlogList blogs={blogs.filter(blog=>blog.author==="mario")} title="All Blogs!"/>
+      <BlogList blogs={blogs} title="All Blogs!" deleteBlog={deleteBlog}/>
+      {/* <BlogList blogs={blogs.filter(blog=>blog.author==="mario")} title="All Blogs!" /> */}
     </div>
   );
 };
