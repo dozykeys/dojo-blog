@@ -1,19 +1,19 @@
-const BlogList
- = ({blogs,title}) => {
+import { Link } from "react-router-dom";
 
- 
-    return ( 
-        <div className="blog-list">
-            <h1>{title}</h1>
-             {blogs.map(({ id ,title,author}) => (
+const BlogList = ({ blogs, title }) => {
+  return (
+    <div className="blog-list">
+      <h1>{title}</h1>
+      {blogs.map(({ id, title, author }) => (
         <div className="blog-preview" key={id}>
-          <h2>{title}</h2>
-          <p>Written by {author}</p>
+          <Link to={`/blogs/${id}`}>
+            <h2>{title}</h2>
+            <p>Written by {author}</p>
+          </Link>
         </div>
       ))}
-        </div>
-     );
-}
- 
-export default BlogList
-;
+    </div>
+  );
+};
+
+export default BlogList;
